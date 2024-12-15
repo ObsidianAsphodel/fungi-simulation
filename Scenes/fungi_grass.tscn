@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://btobi8f0ufnby"]
+
+[ext_resource type="Texture2D" uid="uid://bxcicw3t431ba" path="res://Assets/grassbushcc008.png" id="1_ly5en"]
+
+[node name="Fungi Grass" type="Sprite2D"]
+texture = ExtResource("1_ly5en")

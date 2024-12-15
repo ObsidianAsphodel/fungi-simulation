@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dloq4wy8f26xf"]
+
+[ext_resource type="Script" path="res://Scripts/fungi.gd" id="1_ijb7b"]
+[ext_resource type="ArrayMesh" uid="uid://coeu88w3fwosb" path="res://Assets/Mushrooms.obj" id="1_qsedk"]
+[ext_resource type="PackedScene" uid="uid://btobi8f0ufnby" path="res://Scenes/fungi_grass.tscn" id="2_l7d2f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kbqa1"]
+size = Vector3(1.36035, 0.776855, 1)
+
+[node name="Fungi" type="StaticBody3D"]
+script = ExtResource("1_ijb7b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_qsedk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.95015, 0, 0, 0, 1, 0.180176, 0.99939, 0)
+shape = SubResource("BoxShape3D_kbqa1")
+
+[node name="Fungi Grass" parent="." instance=ExtResource("2_l7d2f")]

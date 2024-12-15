@@ -1,6 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://riguhwtmyhox"]
+[gd_scene load_steps=6 format=3 uid="uid://riguhwtmyhox"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_j726c"]
+[ext_resource type="PackedScene" uid="uid://r8btmq7bfdfj" path="res://Scenes/game_manager.tscn" id="2_mlnuk"]
+[ext_resource type="PackedScene" uid="uid://cwoea6c0pnjrb" path="res://Scenes/plane.tscn" id="3_5cwlt"]
+[ext_resource type="PackedScene" uid="uid://dloq4wy8f26xf" path="res://Scenes/fungi.tscn" id="4_gho77"]
+
+[sub_resource type="Environment" id="Environment_mdxcj"]
+background_mode = 2
+ambient_light_source = 3
+glow_enabled = true
+fog_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0665
+volumetric_fog_emission = Color(0.566796, 0.228407, 0.417939, 1)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_j726c")
+
+[node name="GameManager" parent="." instance=ExtResource("2_mlnuk")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mdxcj")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.86661, 0.498987, 0, -0.498987, 0.86661, -0.000411987, 5.20226, 10.3667)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.000429153, 3.12646, 0.000435829)
+light_color = Color(0.803929, 0.627592, 0.862107, 1)
+light_energy = 5.0
+shadow_enabled = true
+
+[node name="Plane" parent="." instance=ExtResource("3_5cwlt")]
+transform = Transform3D(36.5181, 0, 0, 0, 0.488564, 0, 0, 0, 34.5151, -2.00555, -0.149176, 2.00028)
+
+[node name="Fungi" parent="." instance=ExtResource("4_gho77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.76639, 0.095106, 2.9562)
